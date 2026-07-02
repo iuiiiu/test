@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>题库答题助手</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <h1>题库答题助手</h1>
+      <p>上传题库文件，自动提取题目并在手机上答题</p>
+    </header>
+
+    <section class="card uploader">
+      <label class="label" for="fileInput">选择题库文件（支持 txt / md / json / doc / docx）</label>
+      <input id="fileInput" type="file" accept=".txt,.md,.json,.doc,.docx" multiple />
+      <div class="actions">
+        <button id="parseBtn" class="btn primary" type="button">解析题库</button>
+        <button id="loadDemoBtn" class="btn ghost" type="button">加载示例题</button>
+      </div>
+      <p id="parseHint" class="hint">未解析题目</p>
+    </section>
+
+    <section id="quizPanel" class="card quiz hidden">
+      <div class="quiz-head">
+        <h2 id="quizTitle">开始答题</h2>
+        <div class="head-right">
+          <span id="progressText">0 / 0</span>
+          <span id="timerText">00:00</span>
+        </div>
+      </div>
+
+      <article id="questionBox" class="question-box"></article>
+
+      <div class="nav-actions">
+        <button id="prevBtn" class="btn ghost" type="button">上一题</button>
+        <button id="nextBtn" class="btn ghost" type="button">下一题</button>
+        <button id="submitBtn" class="btn primary" type="button">交卷</button>
+      </div>
+    </section>
+
+    <section id="resultPanel" class="card result hidden">
+      <h2>成绩报告</h2>
+      <p id="scoreText"></p>
+      <div id="resultList" class="result-list"></div>
+      <button id="retryBtn" class="btn primary" type="button">重新作答</button>
+    </section>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
